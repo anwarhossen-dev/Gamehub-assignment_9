@@ -1,0 +1,202 @@
+[
+  {
+    "id": "1",
+    "title": "Player Unknowns Battle Ground: PUBG",
+    "coverPhoto": "https://picsum.photos/400/250?random=1",
+    "category": "FPS",
+    "downloadLink": "https://www.pubgmobile.com/en-US/home.shtml",
+    "description": "PUBG Mobile is a fast-paced battle royale game where players fight for survival, strategy, and victory on dynamic maps.",
+    "ratings": "4.5",
+    "developer": "Krafton"
+  },
+  {
+    "id": "2",
+    "title": "Neon Streets Runner",
+    "coverPhoto": "https://picsum.photos/400/250?random=2",
+    "category": "Runner",
+    "downloadLink": "https://example.com/download/neon-streets",
+    "description": "A cyberpunk endless runner with synthwave soundtrack and city-levels.",
+    "ratings": "4.8",
+    "developer": "IndieForge"
+  },
+  {
+    "id": "3",
+    "title": "Galactic Tactics",
+    "coverPhoto": "https://picsum.photos/400/250?random=3",
+    "category": "Strategy",
+    "downloadLink": "https://example.com/download/galactic-tactics",
+    "description": "Turn-based space tactics with deep unit customization.",
+    "ratings": "4.7",
+    "developer": "Starbyte"
+  },
+  {
+    "id": "4",
+    "title": "Mystic Quest",
+    "coverPhoto": "https://picsum.photos/400/250?random=4",
+    "category": "RPG",
+    "downloadLink": "https://example.com/download/mystic-quest",
+    "description": "Embark on an epic fantasy RPG journey with magic and legendary beasts.",
+    "ratings": "4.6",
+    "developer": "FantasyLabs"
+  },
+  {
+    "id": "5",
+    "title": "Speed Racers",
+    "coverPhoto": "https://picsum.photos/400/250?random=5",
+    "category": "Racing",
+    "downloadLink": "https://example.com/download/speed-racers",
+    "description": "High-octane racing game with customizable vehicles and tracks.",
+    "ratings": "4.3",
+    "developer": "TurboGames"
+  },
+  {
+    "id": "6",
+    "title": "Zombie Siege",
+    "coverPhoto": "https://picsum.photos/400/250?random=6",
+    "category": "Survival",
+    "downloadLink": "https://example.com/download/zombie-siege",
+    "description": "Survive waves of zombies in this thrilling survival shooter.",
+    "ratings": "4.4",
+    "developer": "DeadPixel"
+  },
+  {
+    "id": "7",
+    "title": "Pixel Adventure",
+    "coverPhoto": "https://picsum.photos/400/250?random=7",
+    "category": "Platformer",
+    "downloadLink": "https://example.com/download/pixel-adventure",
+    "description": "Retro platformer game with challenging levels and cute pixel art.",
+    "ratings": "4.2",
+    "developer": "RetroWorks"
+  },
+  {
+    "id": "8",
+    "title": "Sky Realms",
+    "coverPhoto": "https://picsum.photos/400/250?random=8",
+    "category": "MMORPG",
+    "downloadLink": "https://example.com/download/sky-realms",
+    "description": "Explore floating islands and epic quests in this fantasy MMORPG.",
+    "ratings": "4.7",
+    "developer": "CloudNine Studios"
+  },
+  {
+    "id": "9",
+    "title": "Cyber Hackers",
+    "coverPhoto": "https://picsum.photos/400/250?random=9",
+    "category": "Puzzle",
+    "downloadLink": "https://example.com/download/cyber-hackers",
+    "description": "Solve hacking puzzles and decrypt secure networks in a cyberpunk world.",
+    "ratings": "4.5",
+    "developer": "CodeCrackers"
+  },
+  {
+    "id": "10",
+    "title": "Battle Tanks",
+    "coverPhoto": "https://picsum.photos/400/250?random=10",
+    "category": "Action",
+    "downloadLink": "https://example.com/download/battle-tanks",
+    "description": "Command tanks in strategic battlefield arenas and defeat opponents.",
+    "ratings": "4.4",
+    "developer": "Armory Games"
+  },
+  {
+    "id": "11",
+    "title": "Dragon Riders",
+    "coverPhoto": "https://picsum.photos/400/250?random=11",
+    "category": "RPG",
+    "downloadLink": "https://example.com/download/dragon-riders",
+    "description": "Fly dragons, complete quests and battle monsters in a fantasy world.",
+    "ratings": "4.6",
+    "developer": "FireWing Studios"
+  },
+  {
+    "id": "12",
+    "title": "Space Invaders X",
+    "coverPhoto": "https://picsum.photos/400/250?random=12",
+    "category": "Shooter",
+    "downloadLink": "https://example.com/download/space-invaders-x",
+    "description": "Classic arcade shooter with modern graphics and challenging waves.",
+    "ratings": "4.3",
+    "developer": "GalaxyWorks"
+  },
+  {
+    "id": "13",
+    "title": "Jungle Escape",
+    "coverPhoto": "https://picsum.photos/400/250?random=13",
+    "category": "Adventure",
+    "downloadLink": "https://example.com/download/jungle-escape",
+    "description": "Solve puzzles and escape treacherous jungles in this adventure game.",
+    "ratings": "4.2",
+    "developer": "WildStudio"
+  },
+  {
+    "id": "14",
+    "title": "Frost Fighters",
+    "coverPhoto": "https://picsum.photos/400/250?random=14",
+    "category": "Fighting",
+    "downloadLink": "https://example.com/download/frost-fighters",
+    "description": "One-on-one combat in icy arenas with special fighting moves.",
+    "ratings": "4.5",
+    "developer": "IceStorm Games"
+  },
+  {
+    "id": "15",
+    "title": "Mystery Manor",
+    "coverPhoto": "https://picsum.photos/400/250?random=15",
+    "category": "Puzzle",
+    "downloadLink": "https://example.com/download/mystery-manor",
+    "description": "Solve the mysteries of a haunted manor with hidden objects and clues.",
+    "ratings": "4.4",
+    "developer": "EnigmaWorks"
+  },
+  {
+    "id": "16",
+    "title": "Robo Warriors",
+    "coverPhoto": "https://picsum.photos/400/250?random=16",
+    "category": "Action",
+    "downloadLink": "https://example.com/download/robo-warriors",
+    "description": "Fight robots and complete missions in futuristic battle arenas.",
+    "ratings": "4.3",
+    "developer": "MechForge"
+  },
+  {
+    "id": "17",
+    "title": "Island Tycoon",
+    "coverPhoto": "https://picsum.photos/400/250?random=17",
+    "category": "Simulation",
+    "downloadLink": "https://example.com/download/island-tycoon",
+    "description": "Build and manage your own island paradise in this simulation game.",
+    "ratings": "4.6",
+    "developer": "SimWorld"
+  },
+  {
+    "id": "18",
+    "title": "Alien Attackers",
+    "coverPhoto": "https://picsum.photos/400/250?random=18",
+    "category": "Shooter",
+    "downloadLink": "https://example.com/download/alien-attackers",
+    "description": "Defend Earth from waves of alien invaders in a fast-paced shooter.",
+    "ratings": "4.5",
+    "developer": "Starforce Games"
+  },
+  {
+    "id": "19",
+    "title": "City Builders",
+    "coverPhoto": "https://picsum.photos/400/250?random=19",
+    "category": "Simulation",
+    "downloadLink": "https://example.com/download/city-builders",
+    "description": "Plan, construct, and manage a thriving city in this simulation game.",
+    "ratings": "4.4",
+    "developer": "UrbanWorks"
+  },
+  {
+    "id": "20",
+    "title": "Sky Riders",
+    "coverPhoto": "https://picsum.photos/400/250?random=20",
+    "category": "Racing",
+    "downloadLink": "https://example.com/download/sky-riders",
+    "description": "Race across the skies with jet-powered vehicles and epic courses.",
+    "ratings": "4.6",
+    "developer": "AeroStudios"
+  }
+]
