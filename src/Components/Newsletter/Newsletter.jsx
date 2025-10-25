@@ -25,7 +25,7 @@ const Newsletter = () => {
           required
           placeholder="Enter your email"
           aria-label="Email"
-          className="w-full sm:w-auto flex-1 px-4 py-3 rounded-lg text-white-900 outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full sm:w-auto flex-1 px-4 py-3 rounded-lg text-gray-900 bg-white focus:ring-2 focus:ring-blue-500 outline-none"
         />
         <button
           type="submit"
@@ -37,7 +37,7 @@ const Newsletter = () => {
 
       {subscribed && (
         <p className="text-green-400 mt-4 font-medium">
-          ✅ Thank you for subscribing!
+           Thank you for subscribing!
         </p>
       )}
     </section>
