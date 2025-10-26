@@ -1,9 +1,17 @@
-import React, { Children } from 'react';
+// src/Components/MyContainer.jsx
+import React from "react";
 
-const MyContainer = ({className, clidren}) => {
-    return (
-        <div className={`${className} container mx-auto`}>{Children} </div>
-    );
+const MyContainer = ({ className = "", children }) => {
+  return <div className={`${className} container mx-auto`}>{children}</div>;
 };
 
 export default MyContainer;
+
+
+// import React from "react";
+
+// const MyContainer = ({ className = "", children }) => {
+//   return <div className={`${className} container mx-auto`}>{children}</div>;
+// };
+
+// export default MyContainer;

@@ -1,52 +1,40 @@
-import React from 'react';
+
+
+
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom"; // ✅ use NavLink
 import logoImage from '../../assets/logo.png';
-import MyLink from '../MyLink/MyLink';
+import { auth } from '../../firebase/firebase.config';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => toast.success('Signed out successfully'))
+      .catch((err) => toast.error(err.message));
+  };
+
   const links = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about-us" },
-    { name: "Games", path: "/games" },
-    { name: "Contact", path: "/contact" },
+    { name: "Games", path: "/gamescard" },
+    // { name: "Contact", path: "/contact" },
     { name: "Profile", path: "/profile" },
   ];
 
   return (
     <div className="navbar bg-gray-900 text-white shadow-sm sticky top-0 z-50 px-6">
       <div className="navbar-start">
-        <div className="dropdown">
-          <button
-            tabIndex={0}
-            className="btn btn-ghost lg:hidden"
-            aria-label="Toggle menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </button>
-
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content bg-gray-800 rounded-box mt-3 w-52 p-2 shadow"
-          >
-            {links.map((link, i) => (
-              <li key={i}>
-                <MyLink to={link.path}>{link.name}</MyLink>
-              </li>
-            ))}
-          </ul>
-        </div>
         <img src={logoImage} alt="GameHub Logo" className="w-12" />
       </div>
 
@@ -54,17 +42,52 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">
           {links.map((link, i) => (
             <li key={i}>
-              <MyLink to={link.path}>{link.name}</MyLink>
+              <NavLink
+                to={link.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-indigo-400 font-bold px-3 py-2 rounded"
+                    : "text-white px-3 py-2 rounded hover:text-indigo-400 transition"
+                }
+              >
+                {link.name}
+              </NavLink>
             </li>
           ))}
         </ul>
       </div>
 
       <div className="navbar-end">
-        {/* Use MyLink instead of <a> */}
-        <MyLink to="/signup" className="btn bg-indigo-600 hover:bg-indigo-700 transition">
-          SignUp
-        </MyLink>
+        {user ? (
+          <div className="flex items-center gap-3">
+            <img
+              src={user.photoURL || 'https://via.placeholder.com/40'}
+              alt="User"
+              className="w-10 h-10 rounded-full border border-gray-500"
+            />
+            <button
+              onClick={handleSignOut}
+              className="btn bg-red-600 hover:bg-red-700 transition"
+            >
+              Sign Out
+            </button>
+          </div>
+        ) : (
+          <>
+            <NavLink
+              to="/signin"
+              className="btn bg-blue-600 hover:bg-blue-700 transition mr-2"
+            >
+              Sign In
+            </NavLink>
+            <NavLink
+              to="/signup"
+              className="btn bg-indigo-600 hover:bg-indigo-700 transition"
+            >
+              Sign Up
+            </NavLink>
+          </>
+        )}
       </div>
     </div>
   );

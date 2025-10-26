@@ -66,3 +66,20 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+// import React from "react";
+
+// const Footer = () => {
+//   return (
+//     <footer className="bg-gray-900 text-gray-400 py-8 px-6 text-center border-t border-gray-700">
+//       <p>&copy; {new Date().getFullYear()} GameHub. All rights reserved.</p>
+//       <p className="mt-2">
+//         <a href="/about-us" className="hover:text-indigo-400 mr-4">About</a>
+//         <a href="/contact" className="hover:text-indigo-400">Contact</a>
+//       </p>
+//     </footer>
+//   );
+// };
+
+// export default Footer;

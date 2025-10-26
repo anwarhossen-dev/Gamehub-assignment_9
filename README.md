@@ -14,3 +14,40 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+# GameHub - A Game Library
+
+## Purpose
+GameHub is an engaging online library for discovering and supporting indie game developers. Users can browse games, view details, download, and manage profiles.
+
+## Live URL
+[Your Live Link Here] (e.g., https://gamehub-app.netlify.app)
+
+## Key Features
+- Responsive design (mobile, tablet, desktop)
+- Firebase authentication (email/password, Google, verification, reset password)
+- Protected routes for game details and profile
+- Banner slider, newsletter subscription
+- Popular games (top 3 by rating) on home
+- Full games list, details with download
+- Profile update
+- Logout functionality
+- Dynamic page titles
+- 404 page
+- Framer Motion animations
+
+## NPM Packages Used
+- react-router-dom
+- firebase
+- react-toastify
+- swiper
+- framer-motion
+- tailwindcss
+
+## Setup
+1. Clone repo
+2. npm install
+3. Add .env with Firebase keys
+4. npm start
