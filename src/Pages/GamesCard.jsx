@@ -1,5 +1,7 @@
+// src/Pages/GamesCard.jsx
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const GamesCard = () => {
   const [games, setGames] = useState([]);
@@ -11,27 +13,65 @@ const GamesCard = () => {
       .catch((err) => console.error("Error loading games:", err));
   }, []);
 
+  // 🔹 Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
+
   return (
     <div className="py-16 px-6 bg-gray-900 text-white min-h-screen">
-      <h2 className="text-4xl font-bold mb-6 text-center text-indigo-400">
+      {/* Heading */}
+      <motion.h2
+        className="text-4xl font-bold mb-6 text-center text-indigo-400"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         🎮 All Games
-      </h2>
+      </motion.h2>
 
-      <div className="text-center mb-10">
+      {/* Back to Home */}
+      <motion.div
+        className="text-center mb-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+      >
         <Link
           to="/"
           className="inline-block bg-indigo-600 hover:bg-indigo-700 px-6 py-2 rounded-lg font-medium transition"
         >
           ⬅ Back to Home
         </Link>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* Games Grid */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {games.length > 0 ? (
           games.map((game) => (
-            <div
+            <motion.div
               key={game.id}
-              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
+              className="bg-gray-800 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+              variants={cardVariants}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0px 0px 20px rgba(99, 102, 241, 0.5)",
+              }}
+              transition={{ type: "spring", stiffness: 200 }}
             >
               <img
                 src={game.coverPhoto || game.image}
@@ -57,12 +97,18 @@ const GamesCard = () => {
                   View Details
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))
         ) : (
-          <p className="text-center text-gray-400">Loading games...</p>
+          <motion.p
+            className="text-center text-gray-400"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            Loading games...
+          </motion.p>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };
