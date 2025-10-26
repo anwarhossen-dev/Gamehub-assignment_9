@@ -1,18 +1,23 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { RouterProvider } from "react-router-dom";
+import router from "./Route/routes.jsx";
+import AuthProvider from "./Context/AuthProvider";
+import { UserProvider } from "./Context/UserContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import { RouterProvider } from 'react-router-dom';
-import router from './Route/routes.jsx';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import AuthProvider from './Context/AuthProvider';
+const container = document.getElementById("root");
+const root = createRoot(container);
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
+root.render(
+  <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
-      <ToastContainer />
+      <UserProvider>
+        <RouterProvider router={router} />
+        <ToastContainer />
+      </UserProvider>
     </AuthProvider>
-  </StrictMode>
+  </React.StrictMode>
 );
