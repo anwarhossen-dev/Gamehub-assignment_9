@@ -15,7 +15,7 @@ const fadeUp = {
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-white py-16 px-6 flex flex-col items-center">
+    <div className="min-h-screen bg-gray-900 text-white py-16 px-6 flex flex-col text-center items-center">
       <MyContainer>
         {/* Title */}
         <motion.h1
@@ -36,7 +36,7 @@ const AboutUs = () => {
           custom={0.2}
         >
           Welcome to{" "}
-          <span className="text-indigo-400 font-semibold">GameHub</span> — your
+          <span className="text-indigo-400 font-semibold ">GameHub</span> — your
           ultimate destination for discovering, exploring, and enjoying the
           world of video games. We’re passionate about connecting gamers with
           the latest titles, classic favorites, and hidden gems from developers
