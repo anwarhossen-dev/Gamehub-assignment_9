@@ -1,11 +1,15 @@
+
+
+
 // src/Pages/HomePage.jsx
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { AuthContext } from "../Context/AuthProvider";
 
 const HomePage = () => {
   const [games, setGames] = useState([]);
+  const [selectedGame, setSelectedGame] = useState(null);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -16,17 +20,12 @@ const HomePage = () => {
       .catch((err) => console.error("Error loading games:", err));
   }, []);
 
-  const handleViewDetails = (id) => {
-    if (user) navigate(`/game/${id}`);
-    else navigate("/signin");
-  };
-
   const handleSeeAllGames = () => {
     if (user) navigate("/gamescard");
     else navigate("/signin");
   };
 
-  // Framer motion variants for stagger animation
+  // Framer motion variants
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -38,6 +37,18 @@ const HomePage = () => {
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
+
+  const modalBg = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
+  const modalContent = {
+    hidden: { y: 50, opacity: 0, scale: 0.9 },
+    visible: { y: 0, opacity: 1, scale: 1, transition: { duration: 0.5 } },
+    exit: { y: 40, opacity: 0, scale: 0.9 },
   };
 
   return (
@@ -76,8 +87,11 @@ const HomePage = () => {
                 />
                 <h3 className="text-xl font-semibold">{game.title}</h3>
                 <p className="text-sm text-gray-300 mb-3">{game.dev}</p>
+
                 <motion.button
-                  onClick={() => handleViewDetails(game.id)}
+                  onClick={() =>
+                    user ? setSelectedGame(game) : navigate("/signin")
+                  }
                   className="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-md text-sm font-medium inline-block"
                   whileTap={{ scale: 0.95 }}
                 >
@@ -115,8 +129,63 @@ const HomePage = () => {
           </motion.div>
         )}
       </section>
+
+      {/* 🔹 Game Detail Modal */}
+      <AnimatePresence>
+        {selectedGame && (
+          <motion.div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+            variants={modalBg}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={() => setSelectedGame(null)}
+          >
+            <motion.div
+              className="bg-gray-800 rounded-2xl max-w-2xl w-full p-6 relative"
+              variants={modalContent}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedGame(null)}
+                className="absolute top-3 right-3 text-gray-400 hover:text-white text-xl"
+              >
+                ✖
+              </button>
+
+              <img
+                src={selectedGame.image || selectedGame.coverPhoto}
+                alt={selectedGame.title}
+                className="w-full h-72 object-cover rounded-lg mb-4"
+              />
+              <h2 className="text-3xl font-bold text-indigo-400 mb-2">
+                {selectedGame.title}
+              </h2>
+              <p className="text-gray-300">
+                <span className="font-semibold text-white">Genre:</span>{" "}
+                {selectedGame.category}
+              </p>
+              <p className="text-gray-300">
+                <span className="font-semibold text-white">Developer:</span>{" "}
+                {selectedGame.dev}
+              </p>
+              <p className="text-gray-400 mt-3 leading-relaxed">
+                {selectedGame.description}
+              </p>
+              <p className="text-gray-300 mt-2">
+                <span className="font-semibold text-white">Rating:</span> ⭐{" "}
+                {selectedGame.ratings}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export default HomePage;
+

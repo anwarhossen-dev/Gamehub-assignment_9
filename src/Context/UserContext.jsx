@@ -5,7 +5,7 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [userProfile, setUserProfile] = useState({ name: "", photo: "" });
 
-  const updateProfile = (profile) => setUserProfile(profile);
+  const updateProfile = (profile) => setUserProfile((prev) => ({ ...prev, ...profile }));
   const resetProfile = () => setUserProfile({ name: "", photo: "" });
 
   return (
